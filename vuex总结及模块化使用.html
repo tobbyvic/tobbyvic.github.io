@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>VuePress</title>
+    <meta name="generator" content="VuePress 1.9.4">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.97901ea8.js" as="script"><link rel="preload" href="/assets/js/2.799a5dcd.js" as="script"><link rel="preload" href="/assets/js/13.ad33542d.js" as="script"><link rel="prefetch" href="/assets/js/10.4b395e85.js"><link rel="prefetch" href="/assets/js/11.f8892d18.js"><link rel="prefetch" href="/assets/js/12.61e471bc.js"><link rel="prefetch" href="/assets/js/14.c80f0e20.js"><link rel="prefetch" href="/assets/js/15.ae930c17.js"><link rel="prefetch" href="/assets/js/16.a0534fa0.js"><link rel="prefetch" href="/assets/js/17.5eb49c16.js"><link rel="prefetch" href="/assets/js/18.39ac6408.js"><link rel="prefetch" href="/assets/js/3.d26d1294.js"><link rel="prefetch" href="/assets/js/4.47eea935.js"><link rel="prefetch" href="/assets/js/5.65b6c22e.js"><link rel="prefetch" href="/assets/js/6.9ba1316a.js"><link rel="prefetch" href="/assets/js/7.7d2d3cfc.js"><link rel="prefetch" href="/assets/js/8.251e3871.js"><link rel="prefetch" href="/assets/js/9.c8ef6847.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e4d8b86b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><p>vuex总结及模块化使用
+#在main.js中引入。
+import store from './store/index'
+new Vue({...store...})
+#模块化定义</p> <p>index.js</p> <p>app.js, user.js</p> <p>`getter.js</p> <p>其中，不同modules的state是独立的，在组件中访问时只能通过this.$store.state.modulename.<em>而getters、mutation、action都是共同的，可直接通过this.$store.getters.</em> 或者 this.$store.commit(‘*’)来获取或执行 。</p> <p>#应用命名空间使getters、mutation、action也相互独立。
+例如form.js</p> <p>如果希望你的模块具有更高的封装度和复用性，你可以通过添加 namespaced: true 的方式使其成为带命名空间的模块。当模块被注册后，它的所有 getter、action 及 mutation 都会自动根据模块注册的路径调整命名。</p> <p>在组件中访问该module的getters -&gt; this.$store.getters[‘form/*’]</p> <p>在组件中访问该module的mutation-&gt; this.$store.commit[‘form/*’]</p> <p>在组件中访问该module的action-&gt;this.$store.dispatch[‘form/*’]</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.97901ea8.js" defer></script><script src="/assets/js/2.799a5dcd.js" defer></script><script src="/assets/js/13.ad33542d.js" defer></script>
+  </body>
+</html>

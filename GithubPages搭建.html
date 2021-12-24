@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>VuePress</title>
+    <meta name="generator" content="VuePress 1.9.4">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.97901ea8.js" as="script"><link rel="preload" href="/assets/js/2.799a5dcd.js" as="script"><link rel="preload" href="/assets/js/8.251e3871.js" as="script"><link rel="prefetch" href="/assets/js/10.4b395e85.js"><link rel="prefetch" href="/assets/js/11.f8892d18.js"><link rel="prefetch" href="/assets/js/12.61e471bc.js"><link rel="prefetch" href="/assets/js/13.ad33542d.js"><link rel="prefetch" href="/assets/js/14.c80f0e20.js"><link rel="prefetch" href="/assets/js/15.ae930c17.js"><link rel="prefetch" href="/assets/js/16.a0534fa0.js"><link rel="prefetch" href="/assets/js/17.5eb49c16.js"><link rel="prefetch" href="/assets/js/18.39ac6408.js"><link rel="prefetch" href="/assets/js/3.d26d1294.js"><link rel="prefetch" href="/assets/js/4.47eea935.js"><link rel="prefetch" href="/assets/js/5.65b6c22e.js"><link rel="prefetch" href="/assets/js/6.9ba1316a.js"><link rel="prefetch" href="/assets/js/7.7d2d3cfc.js"><link rel="prefetch" href="/assets/js/9.c8ef6847.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e4d8b86b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><p>GitHub Pages 搭建
+#为什么使用 GitHub Pages
+如果你把他作为一个轻量级的个人博客服务，GitHub Pages 相较 WordPress 之类的建站服务有什么优势呢？</p> <p>首先他是完全免费的，相较其他的同类产品，他能替你省下一笔服务费，节约下的钱可以让你买一些其他的会员服务；
+无须自己购买云服务进行搭建，只需按步骤一步步操作即可，即使你不懂他的技术细节；
+支持的功能多，玩法丰富，你可以绑定你的域名、使用免费的 HTTPS、自己 DIY 网站的主题、使用他人开发好的插件等等；
+当完成搭建后，你只需要专注于文章创作就可以了，其他诸如环境搭建、系统维护、文件存储的事情一概不用操心，都由 GitHub 处理
+当然了，作为一款免费的服务，我们也是要遵守 GitHub 官方使用建议和限制，在使用的时候项目和网站的大小不要超过 1GB，也不要过于频繁的更新网站的内容（每小时不超过 10 个版本），每个月的也要注意带宽使用上限为 100GB。</p> <p>综合来看，GitHub Pages 依旧可以说是中小型博客或项目主页的最佳选项之一。</p> <p>#如何使用 GitHub pages
+创建仓库
+首先你需要注册一个 GitHub 账号，并在个人主界面里选择创建一个新的 Repository 。</p> <p>img</p> <p>进入页面后，在 Repository name 的位置填写域名，格式是 username.GitHub.io。</p> <p>使用官方模板主题
+创建成功之后，点击右上角的 Settings</p> <p>img</p> <p>找到 GitHub Pages 选项，选择一个 GitHub 官方提供的主题</p> <p>img</p> <p>这里我们就随意选择一个主题 Cayman，来看看他的效果是什么样的</p> <p>img</p> <p>选择完毕之后 GitHub Pages 就会自动帮你生成好网站，在他跳转的界面点击 Commit changes 按钮，网站就可以访问了。</p> <p>img</p> <p>在浏览器里输入你的项目名称，比如 brick713.GitHub.io，就可以看到，你刚刚选择的主题的个人网站的页面了。</p> <p>img</p> <p>到这里如果你只是想做一个例如可以随时在互联网上访问的简历，那么你只需要 GitHub Pages 项目的主页修改你 index.md 文件就可以了，比如我给出的这个模板。</p> <p>img</p> <p>修改完后，点击上图中左下角的 Commit Changes，然后访问你的自定义域名你就可以看到如下的样式了。</p> <p>img</p> <p>此时我们已经完成了在github的仓库配置。接下来我们要用静态博客生成框架vuepress来生成并丰富我们的博客网站。</p> <p>#vuepress安装
+安装程序 node.js 或者 Yarn。VuePress支持使用Yarn和npm来安装，Node.js版本需要&gt;=8才可以。</p> <p>此处选择熟悉的工具即可，博主这里用的是npm咯。</p> <p>打开cmd，在控制台输入以下代码：</p> <p>全局安装VuePress</p> <p>yarn global add vuepress # 或者：npm install -g vuepress</p> <h2 id="或者也可以在已存在的项目中开发-将-vuepress-作为一个本地依赖安装"><a href="#或者也可以在已存在的项目中开发-将-vuepress-作为一个本地依赖安装" class="header-anchor">#</a> 或者也可以在已存在的项目中开发，将 VuePress 作为一个本地依赖安装，</h2> <h2 id="上下两条选择一个即可-博主选择上者-省点折腾。"><a href="#上下两条选择一个即可-博主选择上者-省点折腾。" class="header-anchor">#</a> 上下两条选择一个即可，博主选择上者，省点折腾。</h2> <h2 id="yarn-add-d-vuepress-或者-npm-install-d-vuepress"><a href="#yarn-add-d-vuepress-或者-npm-install-d-vuepress" class="header-anchor">#</a> yarn add -D vuepress # 或者：npm install -D vuepress</h2> <p>创建新项目目录</p> <p>mkdir project
+cd project
+初始化项目</p> <p>yarn init -y # 或者 npm init -y
+接着，在 package.json 里加一些脚本:</p> <p>{
+&quot;scripts&quot;: {
+&quot;docs:dev&quot;: &quot;vuepress dev docs&quot;,
+&quot;docs:build&quot;: &quot;vuepress build docs&quot;
+/* docs:dev 键值可以自定义修改，此处是为了和一些项目中默认脚本中自带的 dev 区分开。
+如果修改了这个doc:dev 为 mydev，那么下面执行vuepress dev docs的命令就变成了npm run mydev
+npm run mydev 等于在该项目的根目录下执行vuepress dev doc
+vuepress dev doc 做的就是调用安装的vuepress去根据你目录中的.vuepress配置项和docs下的所有.md/。html文件做一个项目的编译和打包
+docs:build 同理 */
+}
+}
+然后就可以开始写作了:</p> <p>yarn docs:dev # 或者：npm run docs:dev
+要生成静态的 HTML 文件，运行：</p> <p>yarn docs:build # 或者：npm run docs:build
+默认情况下，文件将会被生成在 .vuepress/dist，当然，你也可以通过 .vuepress/config.js中的 dest 字段来修改，生成的文件可以部署到任意的静态文件服务器上.</p> <p>不习惯命令行输入的也可以直接依靠windows可视化操作建立如下工程目录。</p> <p>project
+├─── docs
+│   ├── README.md
+└── package.json
+在README.md中输入一些内容，在package.json中注入脚本命令。并将命令挂载到webstorm的命令配置处。 然后点击运行run dev ，run build 来自动生成.vuepress文件夹 图片描述</p> <p>project
+├─── docs
+│   ├── README.md
+│   └── .vuepress
+│       ├── dist
+│       ├── public
+│       └── config.js
+└── package.json
+不管使用哪种方式，最终的项目结构应该和上面一样。</p> <p>docs文件夹是你的根目录，也是vuepress要去解析的文件夹，
+docs下的README.md可以理解为首页页面。
+docs下的.vuepress是一些配置文件，这里可以存放图片等静态资源，一些主题配置，自定义组件等等
+至此，一个基于docs文件夹下的README.md文件 生成的页面 就 制作完成了。👏</p> <p>#Config.js配置
+module.exports = {
+title: 'Wiki 1001', // 页签标题 : A001_VuePress博客搭建的简单教程&amp;问题分析 # | Wiki 1001
+description: '金志相的 Wiki 1001 维基百科', // meta 中的描述文字，意义不大，SEO用
+// 注入到当前页面的 HTML </p><head> 中的标签
+head: [
+// 增加一个自定义的 favicon(网页标签的图标)
+// 这里的 '/' 指向 docs/.vuepress/public 文件目录
+// 即 docs/.vuepress/public/img/geass-bg.ico
+['link', { rel: 'icon', href: '/img/geass-bg.ico' }],
+],
+base: '/Wiki1001Pro/', // 这是部署到github相关的配置
+markdown: {
+lineNumbers: true // 代码块显示行号
+},
+}
+config.js中继续配置主题参数 顶部导航栏<p></p> <p>module.exports = {
+...
+themeConfig: {
+sidebarDepth: 4, // e'b将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
+lastUpdated: 'Last Updated' ,// 文档更新时间：每个文件git最后提交的时间,
+// 顶部导航栏
+nav:[
+// 单项 text：显示文字，link：指向链接
+// 这里的'/' 指的是 docs文件夹路径
+// [以 '/' 结尾的默认指向该路径下README.md文件]
+{ text: '求索', link: '/FAQ/' },  // http://localhost:8080/Wiki1001Pro/FAQ/
+{ text: '仓库', link: '/Store/' },
+{ text: '随笔', link: '/Thought/' },
+// 多项，下拉形式
+{
+text: 'Concat',
+items: [
+// link：指向链接也可以是外网链接
+{ text: 'Segmentfault', link: 'https://segmentfault.com/u/mulander' },
+]
+},
+{
+text: 'GitHub',
+items: [
+{ text: 'GitHub首页', link: 'https://github.com/Mulander-J' },
+{ text: 'Island', link: 'https://mulander-j.github.io/island/code/html/index.html' },
+{ text: 'TimeWaster', link: 'https://mulander-j.github.io/timeWaster/demo/index.html#/' },
+]
+},
+],
+}
+}
+config.js中继续配置主题参数 侧边栏</p> <p>module.exports = {
+...
+themeConfig: {
+...
+// 侧边栏菜单( 一个模块对应一个菜单形式 )
+sidebar:{
+// 打开FAQ主页链接时生成下面这个菜单
+'/FAQ/':[
+//多级菜单形式
+{
+// 菜单名
+title: '消化堆',
+// 子菜单
+children: [
+// ['','']=&gt;[路径,标题]
+// 或者写成 '路径',标题自动识别为该地址的文件中的h1标题
+// 不以 '/' 结尾的就是指向.md文件<br>
+['/FAQ/DigestionHeap/Digested','消化过'], // '/FAQ/DigestionHeap/Digested.md'文件
+['/FAQ/DigestionHeap/Digesting','消化中'],
+['/FAQ/DigestionHeap/DigestWill','待消化']
+]
+},
+{
+title: '输出层',
+children: [
+['/FAQ/Console/A001','#A001_VuePress'],
+['/FAQ/Console/A002','#A002_插件清单']
+]
+},
+['/FAQ/','百科首页'],
+['/FAQ/Pool/SkillStack','技术栈'],
+['/FAQ/Pool/Review','归去来']
+],
+// 打开Thought主页链接时生成下面这个菜单
+'/Thought/':[
+['/Thought/','随笔首页'],
+{
+title: '游记',
+children: [
+['/Thought/Travels/beiPing','北平游记'],
+]
+},
+{
+title: '年终回顾',
+children: [
+['/Thought/YearReview/2018','2018年'],
+['/Thought/YearReview/2019','2019年']
+]
+},
+],
+// 打开Store主页链接时生成下面这个菜单
+'/Store/': [
+['','仓库首页'],
+{
+title: '应用',
+children: [
+['/Store/Apps/DownDoors', '下载门户'],
+['/Store/Apps/OwnTest', '博主测评']
+]
+},
+{
+title: '电影',
+children: [
+['/Store/Films/','收藏级电影']
+]
+},
+{
+title: '动画',
+children: [
+['/Store/Anime/','收藏级动画']
+]
+},
+]
+},
+}
+注意事项</p> <p>和图标/图片等静态资源相关的 其 '/' 默认指向的是 docs/.vuepress/public/
+和侧边栏/导航栏相关的地址配置 其 '/' 默认指向的是 docs/
+侧边栏/导航栏指向.md文件的需要先建立相关.md文件，不然会报404或者页面空白
+#目录结构
+本博客的工程目录结构-版本以编辑时间为准，</p> <p>可配合上文 config.js 关联配置</p> <p>Dev
+├─── docs
+│   └── .vuepress   // 配置目录
+│   │    ├── public // 静态资源
+│   │    ├──── img
+│   │    ├────── geass-bg.ico // 图标
+│   │    ├────── logo.jpg // 首页logo
+│   │    └── config.js
+│   ├── FAQ // 求索模块
+│   │    ├── Console    // 一级目录 输出层
+│   │    │      ├── img    // 博文引用 的 相关图片
+│   │    │      │   ├── A001    // A001博文的图片库
+│   │    │      │   └──── 001.jpg<br>
+│   │    │      ├── A001.md    // 输出层
+│   │    │      └── A002.md    // 输出层
+│   │    ├── DigestionHeap // 一级目录 消化堆
+│   │    │      ├── Digested.md    // 二级目录 消化过
+│   │    │      ├── Digesting.md    // 二级目录 消化中
+│   │    │      └── DigestWill.md    // 二级目录 待消化
+│   │    ├── Pool // 静态池
+│   │    │      ├── SkillStack.md    // 技术栈
+│   │    │      └── Review.md    // 归去来
+│   │    └── README.md  // 求索首页
+│   ├── Store
+│   │    ├── Anime    // 一级目录 动漫
+│   │    │      └── README.md
+│   │    ├── Apps // 一级目录 应用
+│   │    │      ├── DownDoors.md    //  下载门户
+│   │    │      └── OwnTest.md    //  博主测评
+│   │    ├── Films // 一级目录 电影
+│   │    │      └── README.md
+│   │    └── README.md  // 仓库首页
+│   ├── Thought
+│   │    ├── Travels    // 一级目录 游记
+│   │    │      └── beiPing.md<br>
+│   │    ├── YearReview // 一级目录 年终回顾
+│   │    │      ├── img    // 博文引用 的 相关图片
+│   │    │      │   ├── 2018    // 2018博文的图片库
+│   │    │      │   ├──── 001.jpg<br>
+│   │    │      │   ├─——─ 002.jpg<br>
+│   │    │      │   └──── 003.jpg<br>
+│   │    │      ├── 2018.md<br>
+│   │    │      └── 2019.md<br>
+│   │    └── README.md  // 随笔首页
+│   └── README.md   // 博客首页
+└── package.json
+#博客首页</p> <hr> <p>home: true
+heroImage: /img/logo.jpg
+heroText: Wiki 1001
+tagline: Meet 1000 Books &amp; Unit Them Into 1 Wiki
+actionText: Get Wiki →
+actionLink: /FAQ/
+features:</p> <ul><li>title: Wiki - 求索
+details: 基于书签对知识点进行 整理，吸收，吐纳，归档。吾将上下而求索...</li> <li>title: Store - 仓库
+details: 展望云仓库而归纳整理，方便行事&amp;培养习惯。鱼和熊掌我全都要...</li> <li>title: Thought - 随笔
+details: 活着，是一件最能带来满足感的事。细细琢磨吧，人生啊，有意思的很...
+footer: MIT Licensed | Copyright © 2019.01.11-present Mulander-J</li></ul> <hr> <p>图片描述</p> <p>#部署博客
+使用指令脚本的形式进行自动化部署。</p> <p>首先，在根目录下创建文件deploy.sh</p> <p>#!/usr/bin/env sh</p> <h1 id="确保脚本抛出遇到的错误"><a href="#确保脚本抛出遇到的错误" class="header-anchor">#</a> 确保脚本抛出遇到的错误</h1> <p>set -e</p> <h1 id="生成静态文件"><a href="#生成静态文件" class="header-anchor">#</a> 生成静态文件</h1> <p>npm run docs:build</p> <h1 id="进入生成的文件夹"><a href="#进入生成的文件夹" class="header-anchor">#</a> 进入生成的文件夹</h1> <p>cd docs/.vuepress/dist</p> <h1 id="如果是发布到自定义域名"><a href="#如果是发布到自定义域名" class="header-anchor">#</a> 如果是发布到自定义域名</h1> <h1 id="echo-www-example-com-cname"><a href="#echo-www-example-com-cname" class="header-anchor">#</a> echo 'www.example.com' &gt; CNAME</h1> <p>git init
+git add -A
+git commit -m 'deploy'</p> <h1 id="如果发布到-https-github-io"><a href="#如果发布到-https-github-io" class="header-anchor">#</a> 如果发布到 https://<USERNAME>.github.io</USERNAME></h1> <p>git push -f git@github.com:tobbyvic/tobbyvic.github.io.git master:main</p> <h1 id="如果发布到-https-github-io-2"><a href="#如果发布到-https-github-io-2" class="header-anchor">#</a> 如果发布到 https://<USERNAME>.github.io/<REPO></REPO></USERNAME></h1> <h1 id="git-push-f-git-github-com-git-master-gh-pages"><a href="#git-push-f-git-github-com-git-master-gh-pages" class="header-anchor">#</a> git push -f git@github.com:<USERNAME>/<REPO>.git master:gh-pages</REPO></USERNAME></h1> <p>然后每次更新完执行脚本即可。</p> <p>#参考文章
+VuePress博客搭载笔记</p> <p>GitHub Pages 搭建教程</p> <p>注: 本文仅学习交流，如有侵权请速与作者联系。</p></head></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.97901ea8.js" defer></script><script src="/assets/js/2.799a5dcd.js" defer></script><script src="/assets/js/8.251e3871.js" defer></script>
+  </body>
+</html>
